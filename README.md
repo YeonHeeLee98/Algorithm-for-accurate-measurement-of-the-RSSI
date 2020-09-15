@@ -1,1 +1,1 @@
-# Algorithm-for-accurate-measurement-of-the-RSSI
+# Distance Measurement Algorithm
