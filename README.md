@@ -49,8 +49,7 @@ Study on BLE Beacon-based Indoor Distance Measurement Technique using Outlier Re
   
 3. 이동평균 적용 : RSSI 값에 이동평균을 적용한다. 이동평균은 기준이 되는 RSSI 값과 이후  w-1개 RSSI 값들의 평균을 구하고, 기준이 되었던 RSSI 값을 계산한 평균값으로 대체한다. 이러한 이동평균은  w번째 RSSI 값부터 다음 RSSI 값으로 이동하며 적용된다.  
   
-4. 최종 거리계산에서는 앞서 보정된 RSSI 값들과 BLE Beacon메시지에 포함된 TxPower 값을 사용하여 각각의 거리측정값을 구하고, 그 거리측정값들의 합을 저장한다. 그 다음 합을 통해 평균 거리측정값을 구하고 이를 최종 거리측정 결과로 도출한다. 이때 각각의 RSSI 값과 TxPower값을 사용해 거리를 측정하는 공식은 다음과 같다.  
-<img src="./images/수식.png" width="80%"> 
+4. 최종 거리계산에서는 앞서 보정된 RSSI 값들과 BLE Beacon메시지에 포함된 TxPower 값을 사용하여 각각의 거리측정값을 구하고, 그 거리측정값들의 합을 저장한다. 그 다음 합을 통해 평균 거리측정값을 구하고 이를 최종 거리측정 결과로 도출한다. 
 
 
 </br> 
@@ -73,7 +72,6 @@ Beacon Receiver는 RSSI 값의 불안정함을 완화하고 거리측정 정확�
 먼저, 미리 정의된 Measurement Period(MP) 동안 RSSI 값을 수집한다. 
 그 후 수집된 RSSI 값의 이상치를 보정하고 이동평균을 적용한다. 
 마지막으로 RSSI 값을 모두 사용해 다수의 거리 측정값을 계산하고, 계산된 거리측정값들의 평균을 최종 거리측정값으로 도출한다.  
-
 </br>
 
 - **저전력 무선 센서 디바이스(BLE Beacon) 개발**
