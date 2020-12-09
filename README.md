@@ -58,20 +58,24 @@ Study on BLE Beacon-based Indoor Distance Measurement Technique using Outlier Re
 
 - **성능 평가** 
 
-  <img src="./images/수신과정.png" width="60%">  
+<img src="./images/수신과정.png" width="60%">  
 
 
-  </br>
+</br>
   
 
-  - BLE Beacon은 Beacon의 고유 정보(universally unique identifier(UUID), Major, Minor, TxPower)를 포함하는 메시지를 주기적으로 전송한다. 
-  - 이때 UUID, Major, Minor은 BLE Beacon의 구별을 위한 정보이다. 
-    - UUID는 BLE Beacon이 사용되는 서비스의 정보, Major는 서비스 내의 하위그룹 정보, Minor는 하위그룹 내의 Beacon의 고유 정보다. 즉 메시지의 UUID, Major, Minor 정보를 통해 메시지를 송신한 BLE Beacon을 구별할 수 있다. 한편, TxPower는 BLE Beacon의 송신 세기이며, Beacon Receiver와 BLE Beacon과의 거리측정에 필요한 값이다.  
+BLE Beacon은 Beacon의 고유 정보(universally unique identifier(UUID), Major, Minor, TxPower)를 포함하는 메시지를 주기적으로 전송한다. 
 
-  - Beacon Receiver는 RSSI 값의 불안정함을 완화하고 거리측정 정확도를 향상시키기 위해 제안기법을 사용한 거리측정을 수행한다. 
+이때 UUID, Major, Minor은 BLE Beacon의 구별을 위한 정보이다. 
+
+UUID는 BLE Beacon이 사용되는 서비스의 정보, Major는 서비스 내의 하위그룹 정보, Minor는 하위그룹 내의 Beacon의 고유 정보다. 즉 메시지의 UUID, Major, Minor 정보를 통해 메시지를 송신한 BLE Beacon을 구별할 수 있다. 한편, TxPower는 BLE Beacon의 송신 세기이며, Beacon Receiver와 BLE Beacon과의 거리측정에 필요한 값이다.  
+
+Beacon Receiver는 RSSI 값의 불안정함을 완화하고 거리측정 정확도를 향상시키기 위해 제안기법을 사용한 거리측정을 수행한다. 
 
 제안기법을 사용한 거리측정은 다음과 같이 동작한다.    
-먼저, 미리 정의된 Measurement Period(MP) 동안 RSSI 값을 수집한다. 그 후 수집된 RSSI 값의 이상치를 보정하고 이동평균을 적용한다. 마지막으로 RSSI 값을 모두 사용해 다수의 거리 측정값을 계산하고, 계산된 거리측정값들의 평균을 최종 거리측정값으로 도출한다.  
+먼저, 미리 정의된 Measurement Period(MP) 동안 RSSI 값을 수집한다. 
+그 후 수집된 RSSI 값의 이상치를 보정하고 이동평균을 적용한다. 
+마지막으로 RSSI 값을 모두 사용해 다수의 거리 측정값을 계산하고, 계산된 거리측정값들의 평균을 최종 거리측정값으로 도출한다.  
 
 </br>
 
