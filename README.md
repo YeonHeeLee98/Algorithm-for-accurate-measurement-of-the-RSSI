@@ -9,14 +9,16 @@ Study on BLE Beacon-based Indoor Distance Measurement Technique using Outlier Re
 
 본 과제에서는 거리측정 정확도를 개선하기 위해 이상치 보정을 활용한  BLE Beacon 기반의 실내 거리측정 기법을 제안한다. 
 
-제안하는 기법은 1) RSSI 값의 평균 및 표준편차 계산, 2) RSSI 값 이상치 보정, 3) 이동평균 적용, 4)최종 거리계산으로 구성된다. 
+제안하는 기법은 1. RSSI 값의 평균 및 표준편차 계산, 2. RSSI 값 이상치 보정, 3. 이동평균 적용, 4. 최종 거리계산으로 구성된다. 
 
-- 1) 수신된  RSSI 값의 평균과 표준편차를 계산한다. 
-- 2) 수집된 RSSI 값의 최댓값, 최솟값을 고려하여 이상치를 최댓값과 최솟값 중 하나로 대체한다. 
-- 3) RSSI 값에 계산한 이동평균을 적용한다. 
-- 4) 보정된 RSSI 값들과 BLE Beacon 메시지에서 수신된 TxPower를 사용하여 최종 거리측정 결과를 도출한다. 
+1. 수신된  RSSI 값의 평균과 표준편차를 계산한다. 
+2. 수집된 RSSI 값의 최댓값, 최솟값을 고려하여 이상치를 최댓값과 최솟값 중 하나로 대체한다. 
+3. RSSI 값에 계산한 이동평균을 적용한다. 
+4. 보정된 RSSI 값들과 BLE Beacon 메시지에서 수신된 TxPower를 사용하여 최종 거리측정 결과를 도출한다. 
 
-제안하는 기법의 성능검증을 위해 BLE Beacon의 개수와 거리의 증가를 고려한 실험이 수행되었다. 실험 결과 제안하는 기법을 적용한 경우가 적용하지 않은 경우보다 54.12% 적은 거리 측정 오차율을 보였다. 이를 통해 제안하는 기법이 BLE Beacon의 개수 및 환경과 관계없이 거리측정의 정확도를 향상시킬 수 있음을 확인했다.
+제안하는 기법의 성능검증을 위해 BLE Beacon의 개수와 거리의 증가를 고려한 실험이 수행되었다. 
+실험 결과 제안하는 기법을 적용한 경우가 적용하지 않은 경우보다 54.12% 적은 거리 측정 오차율을 보였다. 
+이를 통해 제안하는 기법이 BLE Beacon의 개수 및 환경과 관계없이 거리측정의 정확도를 향상시킬 수 있음을 확인했다.
 
 </br>
 
@@ -39,11 +41,15 @@ Study on BLE Beacon-based Indoor Distance Measurement Technique using Outlier Re
   <img src="./images/RSSI값.png" width="90%">
 
   </br>  
-  1. RSSI 값의 평균 및 표준편차 계산 : MP동안 측정된 RSSI 값들의 평균과 표준편차를 계산하여 각각 저장한다.
-  2. RSSI 값 이상치 보정 : 최댓값과 최솟값을 설정하여 최댓값보다 크거나 최솟값보다 작은 RSSI 값을 이상치로 판단한다. 이상치로 판단된 RSSI 값이 최댓값보다 큰 경우는 최댓값으로 대체되며 최솟값보다 작은 경우는 최솟값으로 대체된다.
-  3. 이동평균 적용 : RSSI 값에 이동평균을 적용한다. 이동평균은 기준이 되는 RSSI 값과 이후  w-1개 RSSI 값들의 평균을 구하고, 기준이 되었던 RSSI 값을 계산한 평균값으로 대체한다. 이러한 이동평균은  w번째 RSSI 값부터 다음 RSSI 값으로 이동하며 적용된다.
-  4. 최종 거리계산에서는 앞서 보정된 RSSI 값들과 BLE Beacon메시지에 포함된 TxPower 값을 사용하여 각각의 거리측정값을 구하고, 그 거리측정값들의 합을 저장한다. 그 다음   합을 통해 평균 거리측정값을 구하고 이를 최종 거리측정 결과로 도출한다. 이때 각각의 RSSI 값과 TxPower값을 사용해 거리를 측정하는 공식은 다음과 같다.
--   <img src="./images/수식.png" width="80%"> 
+  1. RSSI 값의 평균 및 표준편차 계산 : MP동안 측정된 RSSI 값들의 평균과 표준편차를 계산하여 각각 저장한다.  
+  
+  2. RSSI 값 이상치 보정 : 최댓값과 최솟값을 설정하여 최댓값보다 크거나 최솟값보다 작은 RSSI 값을 이상치로 판단한다. 이상치로 판단된 RSSI 값이 최댓값보다 큰 경우는 최댓값으로 대체되며 최솟값보다 작은 경우는 최솟값으로 대체된다.  
+  
+  3. 이동평균 적용 : RSSI 값에 이동평균을 적용한다. 이동평균은 기준이 되는 RSSI 값과 이후  w-1개 RSSI 값들의 평균을 구하고, 기준이 되었던 RSSI 값을 계산한 평균값으로 대체한다. 이러한 이동평균은  w번째 RSSI 값부터 다음 RSSI 값으로 이동하며 적용된다.  
+  
+  4. 최종 거리계산에서는 앞서 보정된 RSSI 값들과 BLE Beacon메시지에 포함된 TxPower 값을 사용하여 각각의 거리측정값을 구하고, 그 거리측정값들의 합을 저장한다. 그 다음 합을 통해 평균 거리측정값을 구하고 이를 최종 거리측정 결과로 도출한다. 이때 각각의 RSSI 값과 TxPower값을 사용해 거리를 측정하는 공식은 다음과 같다.  
+
+- <img src="./images/수식.png" width="80%"> 
 
   
 
@@ -53,12 +59,13 @@ Study on BLE Beacon-based Indoor Distance Measurement Technique using Outlier Re
 
   </br>
 
-  - BLE Beacon은 Beacon의 고유 정보(universally unique identifier(UUID), Major, Minor, TxPower)를 포함하는 메시지를 주기적으로 전송한다. 이때 UUID, Major, Minor은 BLE Beacon의 구별을 위한 정보이다. 
-  UUID는 BLE Beacon이 사용되는 서비스의 정보, Major는 서비스 내의 하위그룹 정보, Minor는 하위그룹 내의 Beacon의 고유 정보다. 즉 메시지의 UUID, Major, Minor 정보를 통해 메시지를 송신한 BLE Beacon을 구별할 수 있다. 한편, TxPower는 BLE Beacon의 송신 세기이며, Beacon Receiver와 BLE Beacon과의 거리측정에 필요한 값이다.
+  - BLE Beacon은 Beacon의 고유 정보(universally unique identifier(UUID), Major, Minor, TxPower)를 포함하는 메시지를 주기적으로 전송한다. 
+  이때 UUID, Major, Minor은 BLE Beacon의 구별을 위한 정보이다. 
+  UUID는 BLE Beacon이 사용되는 서비스의 정보, Major는 서비스 내의 하위그룹 정보, Minor는 하위그룹 내의 Beacon의 고유 정보다. 즉 메시지의 UUID, Major, Minor 정보를 통해 메시지를 송신한 BLE Beacon을 구별할 수 있다. 한편, TxPower는 BLE Beacon의 송신 세기이며, Beacon Receiver와 BLE Beacon과의 거리측정에 필요한 값이다.  
 
 - Beacon Receiver는 RSSI 값의 불안정함을 완화하고 거리측정 정확도를 향상시키기 위해 제안기법을 사용한 거리측정을 수행한다. 
 
-제안기법을 사용한 거리측정은 다음과 같이 동작한다. 먼저, 미리 정의된 Measurement Period(MP) 동안 RSSI 값을 수집한다. 그 후 수집된 RSSI 값의 이상치를 보정하고 이동평균을 적용한다. 마지막으로 RSSI 값을 모두 사용해 다수의 거리 측정값을 계산하고, 계산된 거리측정값들의 평균을 최종 거리측정값으로 도출한다.
+제안기법을 사용한 거리측정은 다음과 같이 동작한다. 먼저, 미리 정의된 Measurement Period(MP) 동안 RSSI 값을 수집한다. 그 후 수집된 RSSI 값의 이상치를 보정하고 이동평균을 적용한다. 마지막으로 RSSI 값을 모두 사용해 다수의 거리 측정값을 계산하고, 계산된 거리측정값들의 평균을 최종 거리측정값으로 도출한다.  
 
 </br>
 
@@ -86,9 +93,11 @@ Study on BLE Beacon-based Indoor Distance Measurement Technique using Outlier Re
 
 ## 실험 결과 
 
-    <img src="./images/그래프.png" width="80%">
+  <img src="./images/그래프.png" width="80%">
     
-    - 그림은 각각 BLE Beacon이 1, 5, 10, 15, 20개 배치되었을 때 0m에서 10m까지의 실제 거리에 따른 거리측정 결과를 보여준다. 그림에서 배치되는 BLE Beacon의 수가 증가할수록 주변 BLE Beacon이 전송하는 메시지와 충돌할 확률이 높아지기 때문에 거리측정값의 오차가 커지는 모습을 보인다. 이를 통해 주변 기기로 인한 외부간섭이 발생하는 상황에서 제안하는 기법을 사용하는 것이 사용하지 않는 것보다 더 높은 정확도로 거리를 측정할 수 있음을 확인할 수 있다. 
+  - 그림은 각각 BLE Beacon이 1, 5, 10, 15, 20개 배치되었을 때 0m에서 10m까지의 실제 거리에 따른 거리측정 결과를 보여준다. 
+  그림에서 배치되는 BLE Beacon의 수가 증가할수록 주변 BLE Beacon이 전송하는 메시지와 충돌할 확률이 높아지기 때문에 거리측정값의 오차가 커지는 모습을 보인다. 
+  이를 통해 주변 기기로 인한 외부간섭이 발생하는 상황에서 제안하는 기법을 사용하는 것이 사용하지 않는 것보다 더 높은 정확도로 거리를 측정할 수 있음을 확인할 수 있다. 
 
 </br>
 
