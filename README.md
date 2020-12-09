@@ -4,6 +4,7 @@ Study on BLE Beacon-based Indoor Distance Measurement Technique using Outlier Re
 
 ------------------------------------------------------------------------
 </br>
+
 ## 개요
 
 본 과제에서는 거리측정 정확도를 개선하기 위해 이상치 보정을 활용한  BLE Beacon 기반의 실내 거리측정 기법을 제안한다. 
