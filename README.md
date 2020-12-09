@@ -1,6 +1,7 @@
 # 저전력 무선 센서 디바이스를 활용한 거리측정 알고리즘
 </br>
-Study on BLE Beacon-based Indoor Distance Measurement Technique using Outlier Replacement 
+Study on BLE Beacon-based Indoor Distance Measurement Technique using Outlier Replacement  
+
 ------------------------------------------------------------------------
 </br>
 ## 개요
